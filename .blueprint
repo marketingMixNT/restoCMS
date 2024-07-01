@@ -1,11 +1,9 @@
 created:
-    - database/factories/MenuFactory.php
-    - database/factories/DishFactory.php
-    - database/migrations/2024_07_01_091717_create_menus_table.php
-    - database/migrations/2024_07_01_091718_create_dishes_table.php
-    - app/Models/Menu.php
-    - app/Models/Dish.php
+    - database/factories/GalleryFactory.php
+    - database/migrations/2024_07_01_120126_create_galleries_table.php
+    - app/Models/Gallery.php
 models:
+    Dish: { name: longtext, ingredients: longtext, price: integer, menu_id: 'biginteger unsigned', sort: 'integer nullable default:NULL' }
+    Menu: { name: longtext, sort: 'integer nullable default:NULL' }
     User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
-    Menu: { name: json, sort: 'integer nullable', relationships: { hasMany: Dish } }
-    Dish: { name: json, ingredients: json, price: integer, menu_id: id, sort: 'integer nullable', relationships: { belongsTo: Menu } }
+    Gallery: { category: json, items: text, sort: 'integer nullable' }

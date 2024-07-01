@@ -1,15 +1,5 @@
 models:
-  Menu:
-    name: json
+  Gallery:
+    category: json
+    items: text
     sort: integer nullable
-    relationships:
-      hasMany: Dish
-
-  Dish:
-    name: json
-    ingredients: json
-    price: integer
-    menu_id: id
-    sort: integer nullable
-    relationships:
-      belongsTo: Menu
