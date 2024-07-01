@@ -1,20 +1,13 @@
 models:
-  Category:
-    name: string
-    sort: integer nullable
-    relationships:
-      hasMany: Menu
-
   Menu:
-    category_id: id
+    name: json
     sort: integer nullable
     relationships:
-      belongsTo: Category
       hasMany: Dish
 
   Dish:
-    name: text
-    ingredients: text
+    name: json
+    ingredients: json
     price: integer
     menu_id: id
     sort: integer nullable

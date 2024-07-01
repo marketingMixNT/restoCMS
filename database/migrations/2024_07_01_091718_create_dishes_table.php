@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            $table->text('ingredients');
+            $table->json('name');
+            $table->json('ingredients');
             $table->integer('price');
             $table->foreignId('menu_id');
             $table->integer('sort')->nullable();

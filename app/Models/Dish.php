@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Menu;
+use Filament\Forms\Components\Textarea;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Filament\Forms\Components\TextInput;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 class Dish extends Model
 {
-    use HasTranslations;
     use HasFactory;
+    use HasTranslations;
+
 
     /**
      * The attributes that are mass assignable.
@@ -33,6 +37,8 @@ class Dish extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'name' => 'array',
+        'ingredients' => 'array',
         'menu_id' => 'integer',
     ];
 
@@ -41,6 +47,59 @@ class Dish extends Model
         return $this->belongsTo(Menu::class);
     }
 
-    public $translatable = ['name', 'ingredients'];
+    public static function getForm()
+    {
+        return [
+            TextInput::make('name')
+                ->label('Nazwa')
+                ->required()
+                ->minLength(3),
+            TextInput::make('price')
+                ->label('Cena')
+                ->required()
+                ->numeric()
+                ->suffix('zł'),
+            Textarea::make('ingredients')
+                ->label('Składniki')
+                ->required()
+                ->minLength(3)
+                ->columnSpanFull(),
+        ];
+    }
 
+    public static function getFormRepeater()
+    {
+        return [
+            TextInput::make('name')
+                // ->afterStateHydrated(function (TextInput $component, $state) {
+                //     if ($state !== null) {
+                //         (isset($state[app()->getLocale()]))
+                //             ? $component->state($state[app()->getLocale()])
+                //             : $component->state($state[config('app.fallback_locale')]);
+                //     }
+                // })
+                ->label('Nazwa')
+                ->required()
+                ->minLength(3),
+            TextInput::make('price')
+                ->label('Cena')
+                ->required()
+                ->numeric()
+                ->suffix('zł'),
+            Textarea::make('ingredients')
+                // ->afterStateHydrated(function (TextArea $component, $state) {
+                //     if ($state !== null) {
+                //         (isset($state[app()->getLocale()]))
+                //             ? $component->state($state[app()->getLocale()])
+                //             : $component->state($state[config('app.fallback_locale')]);
+                //     }
+                // })
+                ->label('Składniki')
+                ->required()
+                ->minLength(3)
+                ->columnSpanFull(),
+        ];
+    }
+
+    public $translatable = ['name', 'ingredients'];
 }

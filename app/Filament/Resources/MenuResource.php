@@ -3,73 +3,62 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
+use App\Models\Dish;
 use App\Models\Menu;
 use Filament\Tables;
 use App\Models\Category;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Awcodes\Shout\Components\Shout;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Resources\Concerns\Translatable;
 use App\Filament\Resources\MenuResource\Pages;
+
+
+//CUSTOM
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\MenuResource\RelationManagers;
 
-//CUSTOM
-use Filament\Resources\Concerns\Translatable;
-
-
 class MenuResource extends Resource
 {
-
     use Translatable;
-
     public static function getTranslatableLocales(): array
     {
         return ['pl', 'en'];
     }
+
     protected static ?string $model = Menu::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document';
+    protected static ?string $navigationGroup = 'Menu';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('category_id')
-                    ->label('Kategoria')
-                    ->relationship('category', 'name')
+                Shout::make('info')
+                ->type('info')
+                ->content('Dania możesz przetłumaczyć w zakładce "Dania".')
+                ->columnSpanFull(),
+                TextInput::make('name')
+                    ->label('Nazwa')
                     ->required()
-                    ->createOptionForm(Category::getForm())
-                    ->editOptionForm(Category::getForm()),
+                    ->unique()
+                    ->minLength(3)
+                    ->maxLength(255),
                 Repeater::make('dishes')
                     ->label('Dania')
                     ->relationship()
                     ->columns(2)
-                    ->schema([
-                        Forms\Components\TextInput::make('name')
-                            ->label('Nazwa')
-                            ->required()
-                            ->minLength(3),
-                        Forms\Components\TextInput::make('price')
-                            ->label('Cena')
-                            ->required()
-                            ->numeric()
-                            ->suffix('zł'),
-                        Forms\Components\Textarea::make('ingredients')
-                            ->label('Składniki')
-                            ->required()
-                            ->minLength(3)
-                            ->columnSpanFull(),
-                    ])
-
+                    ->schema(Dish::getForm())
                     ->columnSpanFull()
                     ->itemLabel(fn (array $state): ?string => $state['name'] ?? null)
                     ->addActionLabel('Dodaj danie')
                     ->collapsed()
                     ->cloneable()
                     ->orderColumn('sort')
-
                     ->reorderable(true)
 
             ]);
@@ -84,7 +73,7 @@ class MenuResource extends Resource
                 Tables\Columns\TextColumn::make('sort')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('category.name')
+                Tables\Columns\TextColumn::make('name')
                     ->label('Kategoria Menu')
                     ->numeric()
                     ->sortable(),

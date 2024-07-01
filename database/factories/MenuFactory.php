@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Category;
 use App\Models\Menu;
 
 class MenuFactory extends Factory
@@ -22,7 +21,7 @@ class MenuFactory extends Factory
     public function definition(): array
     {
         return [
-            'category_id' => Category::factory(),
+            'name' => '{}',
             'sort' => $this->faker->numberBetween(-10000, 10000),
         ];
     }

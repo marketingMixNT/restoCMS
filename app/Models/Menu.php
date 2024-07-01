@@ -4,18 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 
 
-
-
 class Menu extends Model
 {
+    use HasFactory;
     use HasTranslations;
 
-    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +20,7 @@ class Menu extends Model
      * @var array
      */
     protected $fillable = [
-        'category_id',
+        'name',
         'sort',
     ];
 
@@ -34,13 +31,8 @@ class Menu extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'category_id' => 'integer',
+        'name' => 'array',
     ];
-
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
-    }
 
     public function dishes(): HasMany
     {
@@ -48,5 +40,4 @@ class Menu extends Model
     }
 
     public $translatable = ['name'];
-
 }

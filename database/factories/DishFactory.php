@@ -22,8 +22,8 @@ class DishFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'ingredients' => $this->faker->text(),
+            'name' => '{}',
+            'ingredients' => '{}',
             'price' => $this->faker->numberBetween(-10000, 10000),
             'menu_id' => Menu::factory(),
             'sort' => $this->faker->numberBetween(-10000, 10000),
