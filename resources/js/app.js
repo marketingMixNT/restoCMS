@@ -1,5 +1,6 @@
 import './partials/menu'
 import './partials/footerYear'
+import './partials/preloader'
 
 
 import GLightbox from 'glightbox';
