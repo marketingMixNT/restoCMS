@@ -12,7 +12,7 @@
         <nav>
             <ul class="space-y-6">
 
-                <x-shared.aside-nav-link href="{{ route('gallery.index') }}">O nas</x-shared.aside-nav-link>
+                <x-shared.aside-nav-link href="{{ route('about.index') }}">O nas</x-shared.aside-nav-link>
                 <x-shared.aside-nav-link href="{{ route('gallery.index') }}">O nas</x-shared.aside-nav-link>
                 <x-shared.aside-nav-link href="{{ route('gallery.index') }}">O nas</x-shared.aside-nav-link>
                 <x-shared.aside-nav-link href="{{ route('gallery.index') }}">O nas</x-shared.aside-nav-link>

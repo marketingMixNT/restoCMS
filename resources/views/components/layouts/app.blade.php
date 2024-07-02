@@ -1,4 +1,4 @@
-@props(['title', 'description'])
+@props(['title', 'description','overflowY'=>''])
 
 
 <!DOCTYPE html>
@@ -20,8 +20,8 @@
     @endisset
 
     <!--Title-->
-    <title>{{ isset($title) ? $title : 'Resto' }}</title>
-    <meta name="description" {{ isset($description) ? $description : 'Opis' }}>
+    <title>{{ isset($title) ? $title : '' }} - Pizzeria Guido's</title>
+    <meta name="description" {{ isset($description) ? $description : '' }}>
 
     <!--Cannonical-->
     <link rel="canonical" href="{{ url()->current() }}" />
@@ -39,34 +39,33 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="overflow-hidden bg-third-300 h-screen p-2 sm:p-5 z-50 relative">
-    {{-- CUSTOM SCRPITS FROM ADMIN PANEL --}}
-    {{-- @foreach (\App\Models\CustomScript::where('position', 'second_place')->get() as $script)
-        {!! $script->content !!}
-    @endforeach --}}
-    {{-- <x-shared.preloader />
-    <header>
-        <x-shared.nav.navbar />
-        <x-shared.nav.menu />
-        {{ $header }}
+
+<body class="overflow-hidden bg-third-300 relative" >
 
 
-    </header> --}}
-   
 
-   
-    {{ $slot }}
 
-    {{-- 
-    <x-shared.mobile-buttons /> --}}
-   
+    <div class=" fixed top-5 bottom-5 left-5 right-5  rounded-md  overflow-hidden {{$overflowY}}">
+
+        <x-shared.aside />
+
+        <x-shared.header/>
+
+       {{$slot}}
+
+
+
+  
+    </div>
+
+
+
+
+
 
     @filamentScripts
     @vite('resources/js/app.js')
-    {{-- CUSTOM SCRPITS FROM ADMIN PANEL --}}
-    {{-- @foreach (\App\Models\CustomScript::where('position', 'third_place')->get() as $script)
-        {!! $script->content !!}
-    @endforeach --}}
+
 </body>
 
 </html>
