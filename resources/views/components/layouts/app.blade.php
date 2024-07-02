@@ -1,4 +1,4 @@
-@props(['title', 'description', 'overflowY' => ''])
+@props(['title', 'description', 'overflowY' => '' ,'hamburgerDark' =>false])
 
 
 <!DOCTYPE html>
@@ -44,12 +44,12 @@
 
 
 
-    <div class=" fixed top-5 bottom-5 left-5 right-5  rounded-md  overflow-hidden {{ $overflowY }}">
+    <div class=" fixed top-5 bottom-5 left-5 right-5  rounded-md overflow-hidden  {{ $overflowY }}">
         <x-shared.preloader />
 
         <x-shared.aside />
 
-        <x-shared.header />
+        <x-shared.header :hamburgerDark='$hamburgerDark'/>
 
         {{ $slot }}
 

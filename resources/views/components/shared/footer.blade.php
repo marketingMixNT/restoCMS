@@ -9,7 +9,7 @@
                 class="text-third-300 w-6 hover:scale-105 duration-500" /></a>
     </div>
 
-    <span>©<span id="footerYear"></span> Pizzeria Guido's </span>
+    <span>© <span id="footerYear"></span> Pizzeria Guido's </span>
 
 
 
