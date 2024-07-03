@@ -1,5 +1,5 @@
-<x-layouts.app title="Wyjątkowe Dania w Naszym Menu"
-    description="Sprawdź nasze menu pełne włoskich specjałów. Autentyczna pizza, świeże składniki, tradycyjne przepisy. Skosztuj smaków Włoch już dziś!"
+<x-layouts.app title="Skontaktuj się z Nami"
+    description="Skontaktuj się z Pizzerią Guido. Zapraszamy do kontaktu w sprawie rezerwacji, zamówień i wszelkich pytań. Jesteśmy tu, aby Ci pomóc."
     hamburgerDark overflowY='overflow-y-scroll lg:overflow-y-hidden'>
 
     <main>
@@ -9,13 +9,13 @@
             <div
                 class="w-full lg:w-[50%] max:w-[55%] grid grid-cols-2 grid-rows-2 h-[75vh] xl:h-[83vh] 2xl:h-[87vh] max:h-[89vh] rounded-md relative gap-2 max:gap-6">
                 <div class="  rounded-md  overflow-hidden"><img src="{{ asset('assets/img/contact.webp') }}" alt=""
-                        class="w-full h-full hover:scale-105 duration-500"></div>
+                        class="w-full h-full hover:scale-105 duration-500 object-cover"></div>
                 <div class="  rounded-md  overflow-hidden"><img src="{{ asset('assets/img/contact-4.webp') }}"
-                        alt="" class="w-full h-full hover:scale-105 duration-500"></div>
+                        alt="" class="w-full h-full hover:scale-105 duration-500 object-cover"></div>
                 <div class="  rounded-md  overflow-hidden"><img src="{{ asset('assets/img/contact-3.webp') }}"
-                        alt="" class="w-full h-full hover:scale-105 duration-500"></div>
+                        alt="" class="w-full h-full hover:scale-105 duration-500 object-cover"></div>
                 <div class="  rounded-md  overflow-hidden"><img src="{{ asset('assets/img/contact-2.webp') }}"
-                        alt="" class="w-full h-full hover:scale-105 duration-500"></div>
+                        alt="" class="w-full h-full hover:scale-105 duration-500 object-cover"></div>
             </div>
             {{-- TEXT --}}
             <div class="w-full lg:w-[50%] max:w-[45%] overflow-y-scroll  xl:h-[83vh] 2xl:h-[87vh] max:h-[89vh] "

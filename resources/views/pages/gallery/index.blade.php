@@ -1,45 +1,6 @@
-{{-- <x-layouts.app>
 
-    <p>rte</p>
-    
-    
-
-<section id="projects">
-    <div class="container">
-
-        <!--MENU Links-->
-        <div class="items-links px-12 py-24 flex justify-center items-center flex-wrap gap-6">
-            <button class="item-link menu-active" data-name="all">Wszytkie</button>
-            @foreach ($gallery as $index => $category)
-                <button class="item-link" data-name="{{ $category->category }}">{{ $category->category }}</button>
-            @endforeach
-        </div>
-
-        <div class="grid-gallery">
-
-
-            @foreach ($gallery as $category)
-            @foreach ($category['items'] as $img)
-                <div data-name="{{ $category['category'] }}" class="grid-item relative shadow-lg">
-                    <a href="{{ asset('/storage/' . $img) }}" class="glightbox">
-                        <img src="{{ asset('/storage/' . $img) }}" alt="{{ $category->name }}" class="w-44" loading='lazy'>
-                    </a>
-                </div>
-            @endforeach
-        @endforeach
-
-
-
-        </div>
-    </div>
-</section>
-
-</x-layouts.app> --}}
-
-
-
-<x-layouts.app title="Nasza Opowieść - Miłość do Włoskiej Pizzy"
-    description="Poznaj historię i pasję, która stoi za naszą pizzerią. Tworzymy wyjątkową pizzę z sercem i zaangażowaniem, wierni włoskim tradycjom kulinarnym."
+<x-layouts.app title="Zdjęcia Naszych Pizzy i Restauracji"
+    description="Zapraszamy do galerii zdjęć Pizzerii Guido. Odkryj wyjątkową atmosferę naszego lokalu i zobacz nasze pyszne włoskie pizze."
     overflowY='overflow-y-scroll'>
 
 

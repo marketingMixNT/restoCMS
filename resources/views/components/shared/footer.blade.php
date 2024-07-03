@@ -13,5 +13,5 @@
 
 
 
-    <a href="#" class="text-xs font-light">Polityka Prywatności</a>
+    <a href="{{route('privacy-policy.index')}}" class="text-xs font-light">Polityka Prywatności</a>
 </footer>

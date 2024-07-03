@@ -6,14 +6,14 @@
 
         <div class="flex flex-col lg:flex-row h-full w-full pb-6 ">
             <div
-                class="w-full lg:w-1/2 bg-[url('/public/assets/img/menu--mobile.webp')] lg:bg-[url('/public/assets/img/menu.webp')] bg-center bg-cover bg-blend-multiply bg-gray-500 2xl:bg-transparent bg-fixed h-[60vh] sm:h-[70vh] xl:h-[83vh] 2xl:h-[87vh] max:h-[90vh] rounded-md relative">
+                class="w-full lg:w-1/2 bg-[url('/public/assets/img/menu.webp')] bg-center bg-cover bg-blend-multiply bg-gray-500 2xl:bg-transparent bg-fixed h-[60vh] sm:h-[70vh] xl:h-[83vh] 2xl:h-[87vh] max:h-[89vh] rounded-md relative">
 
                 <h1
                     class="text-4xl sm:text-5xl 2xl:text-6xl max:text-7xl  uppercase  text-white absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 lg:hidden text-center">
                     Menu
                 </h1>
             </div>
-            <div class="w-full lg:w-1/2 overflow-y-scroll  xl:h-[83vh] 2xl:h-[87vh] max:h-[90vh] "
+            <div class="w-full lg:w-1/2 overflow-y-scroll  xl:h-[83vh] 2xl:h-[87vh] max:h-[89vh] "
                 style="scroll-behavior: smooth">
 
                 {{-- <h1 class="text-5xl text-center mt-16 hidden lg:block">Menu</h1> --}}
