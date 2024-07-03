@@ -73,15 +73,17 @@
         @enderror
     </div>
 
-    <div id="captcha" class="mt-4" wire:ignore></div>
+    {{-- <div id="captcha" class="mt-4" wire:ignore></div>
  
         @error('captcha')
             <p class="mt-3 text-sm text-red-600 text-left">
                 {{ $message }}
             </p>
-        @enderror
+        @enderror --}}
 
-<button wire.loading.attr="disabled" type="submit" class="flex  justify-center items-center gap-2 px-12 py-4 uppercase text-lg bg-black hover:bg-primary-400 duration-500 text-white rounded-md "> <svg wire:loading  wire:target="submitForm" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="#000000"
+<button   data-sitekey="{{env('CAPTCHA_SITE_KEY')}}"
+data-callback='handle'
+data-action='submit' wire.loading.attr="disabled" type="submit" class="flex  justify-center items-center gap-2 px-12 py-4 uppercase text-lg bg-black hover:bg-primary-400 duration-500 text-white rounded-md "> <svg wire:loading  wire:target="submitForm" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="#000000"
     viewBox="0 0 24 24">
     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="#000000" stroke-width="4"></circle>
     <path class="opacity-75" fill="#fff"
@@ -91,7 +93,7 @@
 </form>
 
 
-<script src="https://www.google.com/recaptcha/api.js?onload=handle&render=explicit"
+{{-- <script src="https://www.google.com/recaptcha/api.js?onload=handle&render=explicit"
     async
     defer>
 </script>
@@ -107,5 +109,18 @@
     }
     var verify = function (response) {
         @this.set('captcha', response)
+    }
+</script> --}}
+
+
+<script src="https://www.google.com/recaptcha/api.js?render={{env('CAPTCHA_SITE_KEY')}}"></script>
+<script>
+    function handle(e) {
+        grecaptcha.ready(function () {
+            grecaptcha.execute('{{env('CAPTCHA_SITE_KEY')}}', {action: 'submit'})
+                .then(function (token) {
+                    @this.set('captcha', token);
+                });
+        })
     }
 </script>

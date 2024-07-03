@@ -17,26 +17,41 @@ class ContactForm extends Component
     public $successMessage;
 
    
-    public $captcha = null;
+    // public $captcha = null;
  
-    public function updatedCaptcha($token)
-    {
-        $response = Http::post(
-            'https://www.google.com/recaptcha/api/siteverify?secret='.
-            env('CAPTCHA_SECRET_KEY').
-            '&response='.$token
-        );
+    // public function updatedCaptcha($token)
+    // {
+    //     $response = Http::post(
+    //         'https://www.google.com/recaptcha/api/siteverify?secret='.
+    //         env('CAPTCHA_SECRET_KEY').
+    //         '&response='.$token
+    //     );
      
-        $success = $response->json()['success'];
+    //     $success = $response->json()['success'];
      
-        if (! $success) {
-            throw ValidationException::withMessages([
-                'captcha' => __('Google thinks, you are a bot, please refresh and try again!'),
-            ]);
-        } else {
-            $this->captcha = true;
-        }
+    //     if (! $success) {
+    //         throw ValidationException::withMessages([
+    //             'captcha' => __('Google thinks, you are a bot, please refresh and try again!'),
+    //         ]);
+    //     } else {
+    //         $this->captcha = true;
+    //     }
+    // }
+
+    public $captcha = 0;
+ 
+public function updatedCaptcha($token)
+{
+    $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . env('CAPTCHA_SECRET_KEY') . '&response=' . $token);
+    $this->captcha = $response->json()['score'];
+ 
+    if (!$this->captcha > .3) {
+        $this->store();
+    } else {
+        return session()->flash('success', 'Google thinks you are a bot, please refresh and try again');
     }
+ 
+}
     
 
     protected $rules = [
