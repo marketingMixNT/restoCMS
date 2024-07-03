@@ -11,5 +11,5 @@
             class="max-w-[100px] 2xl:max-w-[120px] -mt-5 duration-500"></a>
 
     <button type="button" aria-label="otwórz menu"><x-iconpark-hamburgerbutton id="openMenu"
-            class="w-12 {{ $hamburgerDark ? 'text-third-300 hover:text-third-400 lg:text-primary-400' : 'text-third-300 hover:text-third-400' }}  duration-500  " /></button>
+            class="w-12 {{ $hamburgerDark ? 'text-third-300 hover:text-third-400 lg:text-primary-400 lg:hover:text-primary-400' : 'text-third-300 hover:text-third-400' }}  duration-500  " /></button>
 </header>

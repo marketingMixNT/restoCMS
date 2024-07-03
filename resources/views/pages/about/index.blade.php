@@ -5,7 +5,7 @@
 
     <main>
         <section
-            class="bg-[url('/public/assets/img/about.jpg')] bg-center bg-cover bg-blend-multiply bg-gray-600 w-full sm:h-[97vh] bg-fixed ">
+            class="bg-[url('/public/assets/img/about.webp')] bg-center bg-cover bg-blend-multiply bg-gray-600 w-full sm:h-[97vh] bg-fixed ">
 
             <div
                 class=" flex flex-col text-center  justify-center items-center text-white h-full max-w-screen-md mx-6 sm:mx-auto gap-6 py-20 relative">
@@ -35,7 +35,7 @@
 
 
 
-        <x-info-section bgi="bg-[url('/public/assets/img/about-2.jpg')]" heading="Nasza Pasja">
+        <x-info-section bgi="bg-[url('/public/assets/img/about-2.webp')]" heading="Nasza Pasja">
             <p class="text-base 2xl:text-lg" style="line-height: 1.6 ">Od pierwszego dnia, kiedy otworzyliśmy drzwi
                 naszej
                 pizzerii, nasza misja była jasna: dzielić się
@@ -51,7 +51,7 @@
                 oliwy na wierzchu.</p>
         </x-info-section>
 
-        <x-info-section bgi="bg-[url('/public/assets/img/about-3.jpg')]" heading="Nasza Restauracja" mirrorLook="true">
+        <x-info-section bgi="bg-[url('/public/assets/img/about-3.webp')]" heading="Nasza Restauracja" mirrorLook="true">
             <p class="text-base 2xl:text-lg" style="line-height: 1.6 ">ONasza restauracja to miejsce, gdzie tradycja
                 spotyka się z nowoczesnym stylem. Stworzyliśmy przestrzeń, w której możesz poczuć się jak w domu,
                 ciesząc się przytulną atmosferą i ciepłą, włoską gościnnością.</p>
@@ -62,7 +62,7 @@
 
         </x-info-section>
 
-        <x-info-section bgi="bg-[url('/public/assets/img/about-4.jpg')]" heading="Nasza Pizza">
+        <x-info-section bgi="bg-[url('/public/assets/img/about-4.webp')]" heading="Nasza Pizza">
             <p class="text-base 2xl:text-lg" style="line-height: 1.6 ">Nasza pizza to hołd dla tradycyjnych włoskich
                 receptur, połączonych z nowoczesnym podejściem do smaku.</p>
             <p class="text-base 2xl:text-lg" style="line-height: 1.6 ">Wykorzystujemy tylko najwyższej jakości

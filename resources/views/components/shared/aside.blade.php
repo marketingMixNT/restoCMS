@@ -15,7 +15,7 @@
                 <x-shared.aside-nav-link href="{{ route('about.index') }}">O nas</x-shared.aside-nav-link>
                 <x-shared.aside-nav-link href="{{ route('menu.index') }}">Menu</x-shared.aside-nav-link>
                 <x-shared.aside-nav-link href="{{ route('gallery.index') }}">Galeria</x-shared.aside-nav-link>
-                <x-shared.aside-nav-link href="{{ route('gallery.index') }}">Kontakt</x-shared.aside-nav-link>
+                <x-shared.aside-nav-link href="{{ route('contact.index') }}">Kontakt</x-shared.aside-nav-link>
 
             </ul>
         </nav>
