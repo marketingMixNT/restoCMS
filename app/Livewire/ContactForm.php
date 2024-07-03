@@ -3,7 +3,9 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\ValidationException;
 
 class ContactForm extends Component
 {
@@ -14,11 +16,36 @@ class ContactForm extends Component
 
     public $successMessage;
 
+   
+    public $captcha = null;
+ 
+    public function updatedCaptcha($token)
+    {
+        $response = Http::post(
+            'https://www.google.com/recaptcha/api/siteverify?secret='.
+            env('CAPTCHA_SECRET_KEY').
+            '&response='.$token
+        );
+     
+        $success = $response->json()['success'];
+     
+        if (! $success) {
+            throw ValidationException::withMessages([
+                'captcha' => __('Google thinks, you are a bot, please refresh and try again!'),
+            ]);
+        } else {
+            $this->captcha = true;
+        }
+    }
+    
+
     protected $rules = [
         'name' => 'required',
         'email' => 'required|email',
         'phone' => ['required', 'regex:/^\+?[0-9]+$/'],
         'content' => 'required',
+        'captcha' => ['required'],
+        
     ];
 
     public function updated($propertyName)
@@ -54,6 +81,7 @@ class ContactForm extends Component
         $this->email = '';
         $this->phone = '';
         $this->content = '';
+        $this->recaptcha = '';
     }
 
     public function render()
