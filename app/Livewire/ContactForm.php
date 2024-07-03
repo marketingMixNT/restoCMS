@@ -17,26 +17,6 @@ class ContactForm extends Component
     public $successMessage;
 
    
-    // public $captcha = null;
- 
-    // public function updatedCaptcha($token)
-    // {
-    //     $response = Http::post(
-    //         'https://www.google.com/recaptcha/api/siteverify?secret='.
-    //         env('CAPTCHA_SECRET_KEY').
-    //         '&response='.$token
-    //     );
-     
-    //     $success = $response->json()['success'];
-     
-    //     if (! $success) {
-    //         throw ValidationException::withMessages([
-    //             'captcha' => __('Google thinks, you are a bot, please refresh and try again!'),
-    //         ]);
-    //     } else {
-    //         $this->captcha = true;
-    //     }
-    // }
 
     public $captcha = 0;
  
@@ -52,7 +32,7 @@ public function updatedCaptcha($token)
     }
  
 }
-    
+
 
     protected $rules = [
         'name' => 'required',
@@ -96,7 +76,7 @@ public function updatedCaptcha($token)
         $this->email = '';
         $this->phone = '';
         $this->content = '';
-        $this->recaptcha = '';
+        $this->captcha = 0;
     }
 
     public function render()

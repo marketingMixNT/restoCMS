@@ -1,4 +1,5 @@
-<form wire:submit.prevent="submitForm" action="{{ route('contact.form') }}" id="contactForm" class="space-y-12 w-[90%] sm:w-[70%]">
+<form wire:submit.prevent="submitForm" action="{{ route('contact.form') }}" id="contactForm"
+    class="space-y-12 w-[90%] sm:w-[70%]">
     @csrf
     @if ($successMessage)
         <div class="rounded-md bg-primary-400 p-4 mt-8">
@@ -18,7 +19,7 @@
                 <div class="ml-auto pl-3">
                     <div class="-mx-1.5 -my-1.5">
                         <button type="button" wire:click="$set('successMessage', null)"
-                            class="inline-flex rounded-md p-1.5 text-white hover:text-third-400 focus:outline-none focus:bg-third-400 transition ease-in-out duration-150"
+                            class="inline-flex rounded-md p-1.5 text-white hover:text-third-400 focus:outline-none focus:bg-third-400 transition ease-in-out duration-500"
                             aria-label="Dismiss">
                             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd"
@@ -31,7 +32,7 @@
             </div>
         </div>
     @endif
-   
+
 
     {{-- input  --}}
     <div class="flex flex-col gap-3">
@@ -49,7 +50,7 @@
             <label for="phone">Telefon</label>
             <input wire:model.live.lazy='phone' type="tel" name="phone" id="phone"
                 class="bg-transparent border-b-2 border-b-primary-400 focus:border-b-secondary-400 outline-none">
-                @error('phone')
+            @error('phone')
                 <p class="text-red-600 text-xs mb-3">Numer telefonu może składać się tylko z cyfr oraz znaku +.</p>
             @enderror
         </div>
@@ -58,7 +59,7 @@
             <label for="email">Email</label>
             <input wire:model.live.lazy='email' type="email" name="email" id="email"
                 class="bg-transparent border-b-2 border-b-primary-400 focus:border-b-secondary-400 outline-none">
-                @error('email')
+            @error('email')
                 <p class="text-red-600 text-xs mb-3">Niepoprawny adres email.</p>
             @enderror
         </div>
@@ -68,57 +69,36 @@
         <label for="message">Wiadomość</label>
         <textarea wire:model.live.lazy='content' name="content" id="content" required
             class="bg-transparent border-b-2 border-b-primary-400 focus:border-b-secondary-400 outline-none min-h-[140px] max-h-[140px]"></textarea>
-            @error('content')
+        @error('content')
             <p class="text-red-600 text-xs mb-3">Wiadomość jest wymagana.</p>
         @enderror
     </div>
 
-    {{-- <div id="captcha" class="mt-4" wire:ignore></div>
- 
-        @error('captcha')
-            <p class="mt-3 text-sm text-red-600 text-left">
-                {{ $message }}
-            </p>
-        @enderror --}}
 
-<button   data-sitekey="{{env('CAPTCHA_SITE_KEY')}}"
-data-callback='handle'
-data-action='submit' wire.loading.attr="disabled" type="submit" class="flex  justify-center items-center gap-2 px-12 py-4 uppercase text-lg bg-black hover:bg-primary-400 duration-500 text-white rounded-md "> <svg wire:loading  wire:target="submitForm" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="#000000"
-    viewBox="0 0 24 24">
-    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="#000000" stroke-width="4"></circle>
-    <path class="opacity-75" fill="#fff"
-        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-    </path>
-</svg>Wyślij</button>
+    <button data-sitekey="{{ env('CAPTCHA_SITE_KEY') }}" data-callback='handle' data-action='submit'
+        wire.loading.attr="disabled" type="submit"
+        class="flex  justify-center items-center gap-2 px-12 py-4 uppercase text-lg bg-black hover:bg-primary-400 duration-500 text-white rounded-md ">
+        <svg wire:loading wire:target="submitForm" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+            xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="#000000" stroke-width="4"></circle>
+            <path class="opacity-75" fill="#fff"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+            </path>
+        </svg>Wyślij</button>
 </form>
 
 
-{{-- <script src="https://www.google.com/recaptcha/api.js?onload=handle&render=explicit"
-    async
-    defer>
-</script>
- 
-<script>
-    var  handle = function(e) {
-        widget = grecaptcha.render('captcha', {
-            'sitekey': '{{ env('CAPTCHA_SITE_KEY') }}',
-            'theme': 'light', // you could switch between dark and light mode.
-            'callback': verify
-        });
- 
-    }
-    var verify = function (response) {
-        @this.set('captcha', response)
-    }
-</script> --}}
 
 
-<script src="https://www.google.com/recaptcha/api.js?render={{env('CAPTCHA_SITE_KEY')}}"></script>
+
+<script src="https://www.google.com/recaptcha/api.js?render={{ env('CAPTCHA_SITE_KEY') }}"></script>
 <script>
     function handle(e) {
-        grecaptcha.ready(function () {
-            grecaptcha.execute('{{env('CAPTCHA_SITE_KEY')}}', {action: 'submit'})
-                .then(function (token) {
+        grecaptcha.ready(function() {
+            grecaptcha.execute('{{ env('CAPTCHA_SITE_KEY') }}', {
+                    action: 'submit'
+                })
+                .then(function(token) {
                     @this.set('captcha', token);
                 });
         })
