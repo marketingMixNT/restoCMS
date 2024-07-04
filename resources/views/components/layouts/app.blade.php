@@ -8,18 +8,15 @@
     <!-- Start cookieyes banner -->
     <script id="cookieyes" type="text/javascript"
         src="https://cdn-cookieyes.com/client_data/5e9d2d9c786cddeaa73bbe27/script.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KGFHM4V0C"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TM2FLY45F1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-4KGFHM4V0C');
-    </script>
+  gtag('config', 'G-TM2FLY45F1');
+</script>
     <meta charset="utf-8">
     <meta name="application-name" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">

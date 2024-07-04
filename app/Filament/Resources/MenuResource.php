@@ -112,15 +112,15 @@ class MenuResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return __('Menu');
+        return ('Menu');
     }
     public static function getPluralLabel(): string
     {
-        return __('Menu');
+        return ('Menu');
     }
 
     public static function getLabel(): string
     {
-        return __('Menu');
+        return ('Menu');
     }
 }
