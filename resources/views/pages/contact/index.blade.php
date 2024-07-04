@@ -25,9 +25,9 @@
                         class=" w-[90%] lg:w-full 2xl:w-[70%] max:w-[60%] flex flex-col justify-center items-center gap-12 ">
 
                         <x-contact-info-item> <span class="text-xl">{{__('contact.address')}}</span><span>Ludźmierska 26A <br> Nowy Targ</span></x-contact-info-item>
-                        <x-contact-info-item> <span class="text-xl">{{__('contact.phone')}}</span> <a href="tel:+48453400244">+48 453 400 244</a></x-contact-info-item>
+                        <x-contact-info-item> <span class="text-xl">{{__('contact.phone')}}</span> <a href="tel:+48453400244" class="link-hover">+48 453 400 244</a></x-contact-info-item>
                         <x-contact-info-item> <span class="text-xl">{{__('contact.email')}}</span> <a
-                                href="mailto:hello@marketingmix.pl">hello@marketingmix.pl</a></x-contact-info-item>
+                                href="mailto:hello@marketingmix.pl" class="link-hover">hello@marketingmix.pl</a></x-contact-info-item>
 
                         {{-- social --}}
                         <x-social large />

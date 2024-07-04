@@ -8,5 +8,5 @@
 
 
 
-    <a href="{{route('privacy-policy.index')}}" class="text-xs font-light">{{__('shared.footer.privacy-policy')}}</a>
+    <a href="{{route('privacy-policy.index')}}" class="text-xs font-light link-hover--white">{{__('shared.footer.privacy-policy')}}</a>
 </footer>

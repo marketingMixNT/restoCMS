@@ -1,1 +1,1 @@
-<li><a  href="{{$href}}" class="text-2xl sm:text-3xl xl:text-2xl 2xl:text-3xl ">{{$slot}}</a></li>
+<li><a  href="{{$href}}" class="text-2xl sm:text-3xl xl:text-2xl 2xl:text-3xl link-hover">{{$slot}}</a></li>

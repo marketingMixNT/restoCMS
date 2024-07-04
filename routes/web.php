@@ -18,11 +18,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     });
 
 Route::get('/', HomeController::class)->name('home.index');
-Route::get('/o-nas', AboutController::class)->name('about.index');
-Route::get('/menu', MenuController::class)->name('menu.index');
-Route::get('/galeria', GalleryController::class)->name('gallery.index');
-Route::get('/kontakt', ContactController::class)->name('contact.index');
-Route::post('/kontakt', ContactController::class)->name('contact.form');
-Route::get('/polityka-prywatnosci', PrivacyPolicy::class)->name('privacy-policy.index');
+Route::get(LaravelLocalization::transRoute('routes.about'), AboutController::class)->name('about.index');
+Route::get(LaravelLocalization::transRoute('routes.menu'), MenuController::class)->name('menu.index');
+Route::get(LaravelLocalization::transRoute('routes.gallery'), GalleryController::class)->name('gallery.index');
+Route::get(LaravelLocalization::transRoute('routes.contact'), ContactController::class)->name('contact.index');
+Route::post(LaravelLocalization::transRoute('routes.contact'), ContactController::class)->name('contact.form');
+Route::get(LaravelLocalization::transRoute('routes.privacy-policy'), PrivacyPolicy::class)->name('privacy-policy.index');
 
 });
+
+
+
