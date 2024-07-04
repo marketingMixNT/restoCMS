@@ -7,7 +7,6 @@ const headerLogo = document.querySelector('#headerLogo')
 
 const menuHandler = () => {
     menu.classList.toggle('translate-x-[100%]')
-    headerLogo.classList.toggle('opacity-0')
 }
 
 closeBtn.addEventListener('click',menuHandler)

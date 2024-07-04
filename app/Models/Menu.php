@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 class Menu extends Model
@@ -13,7 +14,23 @@ class Menu extends Model
     use HasFactory;
     use HasTranslations;
 
+    protected static function booted()
+    {
+        static::created(function ($menu) {
+            Cache::forget('menu');
+            self::cacheGallery();
+        });
 
+        static::updated(function ($menu) {
+            Cache::forget('menu');
+            self::cacheGallery();
+        });
+
+        static::deleted(function ($menu) {
+            Cache::forget('menu');
+            self::cacheGallery();
+        });
+    }
     /**
      * The attributes that are mass assignable.
      *

@@ -28,7 +28,7 @@ public function updatedCaptcha($token)
     if (!$this->captcha > .3) {
         $this->store();
     } else {
-        return session()->flash('success', 'Google thinks you are a bot, please refresh and try again');
+        return session()->flash('success', __('contact.form.captcha'));
     }
  
 }
@@ -63,7 +63,7 @@ public function updatedCaptcha($token)
                 ->subject('Nowa wiadomość ze strony guidos.pl');
         });
 
-        $this->successMessage = 'Dziękujemy za wiadomość! Odpowiemy najszybciej jak to możliwe!';
+        $this->successMessage = __('contact.form.success-message');
 
         $this->resetForm();
 

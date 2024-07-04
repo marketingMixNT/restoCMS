@@ -6,7 +6,7 @@
         <span>Ludźmierska 26A</span>
         <span>Nowy Targ</span>
     </a>
-    <a wire:navigate href="{{ route('home.index') }}" class="absolute top-0 left-1/2 -translate-x-1/2 "><img
+    <a  href="{{ route('home.index') }}" class="absolute top-0 left-1/2 -translate-x-1/2 "><img
             id="headerLogo" src="{{ asset('assets/logo/logo--white.png') }}" alt="logo pizzeria Guido's" width="120" height="134"
             class="max-w-[100px] 2xl:max-w-[120px] -mt-5 duration-500"></a>
 

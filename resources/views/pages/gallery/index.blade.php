@@ -1,5 +1,5 @@
-<x-layouts.app title="Zdjęcia Naszych Pizzy i Restauracji"
-    description="Zapraszamy do galerii zdjęć Pizzerii Guido. Odkryj wyjątkową atmosferę naszego lokalu i zobacz nasze pyszne włoskie pizze."
+<x-layouts.app title="{{__('gallery.title')}}"
+    description="{{__('gallery.description')}}"
     overflowY='overflow-y-scroll'>
 
 
@@ -12,7 +12,7 @@
                 class="relative h-full max-w-screen-md flex flex-col justify-center items-center gap-6  mx-6 sm:mx-auto  py-20 text-center text-white">
 
                 <x-heading size='h1' class="shadow-2xl mb-4 2xl:mb-12 mt-24">
-                    Galeria
+                    {{__('gallery.heading')}}
                 </x-heading>
 
             </div>
@@ -26,7 +26,7 @@
 
                 @foreach ($gallery as $index => $category)
                     <x-button type='button' class="item-link"
-                        data-name="{{ Str::slug($category['category']) }}">{{ $category->category }}</x-button>
+                        data-name="{{ Str::slug($category['category']) }}" aria-label="{{$category['category']}}">{{ $category->category }}</x-button>
                 @endforeach
             </nav>
 

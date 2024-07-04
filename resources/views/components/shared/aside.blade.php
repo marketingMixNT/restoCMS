@@ -11,12 +11,12 @@
                 alt="logo Pizzeria Guido's" width="250" height="279"
                 class="max-w-[175px] sm:max-w-[200px] xl:max-w-[175px] 2xl:max-w-[200px] max:max-w-[250px]"></a>
         <nav>
-            <ul class="space-y-6">
+            <ul class="space-y-6 text-center ">
 
-                <x-shared.aside-nav-link href="{{ route('about.index') }}">O nas</x-shared.aside-nav-link>
-                <x-shared.aside-nav-link href="{{ route('menu.index') }}">Menu</x-shared.aside-nav-link>
-                <x-shared.aside-nav-link href="{{ route('gallery.index') }}">Galeria</x-shared.aside-nav-link>
-                <x-shared.aside-nav-link href="{{ route('contact.index') }}">Kontakt</x-shared.aside-nav-link>
+                <x-shared.aside-nav-link href="{{ route('about.index') }}">{{__('shared.aside.about')}}</x-shared.aside-nav-link>
+                <x-shared.aside-nav-link href="{{ route('menu.index') }}">{{__('shared.aside.menu')}}</x-shared.aside-nav-link>
+                <x-shared.aside-nav-link href="{{ route('gallery.index') }}">{{__('shared.aside.gallery')}}</x-shared.aside-nav-link>
+                <x-shared.aside-nav-link href="{{ route('contact.index') }}">{{__('shared.aside.contact')}}</x-shared.aside-nav-link>
 
             </ul>
         </nav>

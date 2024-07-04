@@ -5,16 +5,17 @@
         <x-form.success-message successMessage="{{ $successMessage }}" />
     @endif
 
-    <x-form.input name='name' type='text' label='Imię i nazwisko' errorMsg='Imię i nazwisko są wymagane' />
+    <x-form.input name='name' type='text' label="{{ __('contact.form.name') }}"
+        errorMsg="{{ __('contact.form.name-error') }}" />
 
     <div class="flex flex-col sm:flex-row gap-12 w-full">
-        <x-form.input small name='phone' type='tel' label="Telefon"
-            errorMsg='Numer telefonu może składać się tylko z cyfr oraz znaku +' />
-        <x-form.input small name='email' type='email' label="Email" errorMsg='Niepoprawny adres email' />
+        <x-form.input small name='phone' type='tel' label="{{ __('contact.form.phone') }}"
+            errorMsg="{{ __('contact.form.phone-error') }}" />
+        <x-form.input small name='email' type='email' label="{{ __('contact.form.email') }}" errorMsg="{{ __('contact.form.email-error') }}" />
     </div>
 
 
-    <x-form.text-area name='content' label="Wiadomość" errorMsg='Wiadomość jest wymagana.' />
+    <x-form.text-area name='content' label="{{ __('contact.form.message') }}" errorMsg="{{ __('contact.form.message-error') }}" />
 
 
 
@@ -28,7 +29,7 @@
             <path class="opacity-75" fill="#fff"
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
             </path>
-        </svg>Wyślij</x-button>
+        </svg>{{ __('contact.form.submit') }}</x-button>
 </form>
 
 

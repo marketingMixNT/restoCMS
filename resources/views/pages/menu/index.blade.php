@@ -1,5 +1,5 @@
-<x-layouts.app title="Wyjątkowe Dania w Naszym Menu"
-    description="Sprawdź nasze menu pełne włoskich specjałów. Autentyczna pizza, świeże składniki, tradycyjne przepisy. Skosztuj smaków Włoch już dziś!"
+<x-layouts.app title="{{__('menu.title')}}"
+    description="{{__('menu.description')}}"
     hamburgerDark overflowY='overflow-y-scroll lg:overflow-y-hidden'>
 
     <main>
@@ -11,7 +11,7 @@
 
                 <x-heading size='h1'
                     class="lg:hidden absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-center text-white  ">
-                    Menu
+                    {{__('menu.heading')}}
                 </x-heading>
             </div>
             {{-- menu --}}

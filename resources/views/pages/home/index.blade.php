@@ -1,5 +1,5 @@
-<x-layouts.app title="Autentyczna Włoska Pizza - Smak Italii w Twoim Mieście"
-    description="Pizzeria Guido oferuje tradycyjną włoską pizzę z pieca. Świeże składniki, oryginalne receptury. Odwiedź nas i poczuj prawdziwy smak Włoch!">
+<x-layouts.app title="{{__('home.title')}}"
+    description="{{__('home.description')}}">
 
 
     <main
@@ -8,7 +8,7 @@
         <x-heading size='h1'
             class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white shadow-2xl "
             style="line-height: 1.3">
-            Sztuka<br> Włoskiej Pizzy
+            {{__('home.heading-first')}}<br> {{__('home.heading-second')}}
         </x-heading>
 
     </main>
