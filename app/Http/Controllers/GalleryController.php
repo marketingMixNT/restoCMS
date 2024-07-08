@@ -18,7 +18,6 @@ class GalleryController extends Controller
             return Gallery::all();
         });
 
-        // dd($gallery);
 
         return view('pages.gallery.index',['gallery'=>$gallery]);
     }

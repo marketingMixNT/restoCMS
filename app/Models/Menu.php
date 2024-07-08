@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
@@ -18,19 +19,27 @@ class Menu extends Model
     {
         static::created(function ($menu) {
             Cache::forget('menu');
-            self::cacheGallery();
+            self::cacheMenu();
         });
 
         static::updated(function ($menu) {
             Cache::forget('menu');
-            self::cacheGallery();
+            self::cacheMenu();
         });
 
         static::deleted(function ($menu) {
             Cache::forget('menu');
-            self::cacheGallery();
+            self::cacheMenu();
         });
     }
+
+    public static function cacheMenu()
+    {
+        Cache::remember('menu', Carbon::now()->addHours(12), function () {
+            return self::all();
+        });
+    }
+
     /**
      * The attributes that are mass assignable.
      *
